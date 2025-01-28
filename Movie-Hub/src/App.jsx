@@ -1,10 +1,11 @@
 import React from 'react'
 import Home from "./Pages/Home.jsx";
+import Login from "./Pages/Login.jsx";
 
 const App = () => {
     return (
         <div>
-            <Home/>
+            <Login/>
         </div>
     )
 }

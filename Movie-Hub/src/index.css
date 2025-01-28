@@ -18,6 +18,8 @@
     --breakpoint-xs: 480px;
 
     --background-image-hero-pattern: url("/hero-bg.png");
+
+    --background-image-hero-pattern1: url("./login-bg.png.webp");
 }
 
 @layer base {
@@ -50,7 +52,10 @@
 
 @layer components {
     .pattern {
-        @apply bg-hero-pattern w-screen h-screen bg-center bg-cover absolute z-0;
+        @apply bg-hero-pattern w-screen h-screen bg-center bg-cover absolute ;
+    }
+    .loginPattern{
+        @apply bg-hero-pattern w-screen h-screen bg-center bg-cover flex ;
     }
 
     .wrapper {
@@ -159,4 +164,14 @@
     &::-webkit-scrollbar {
         display: none;
     }
+}
+
+.violet-gradient {
+    background: #804dee;
+    background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+    background: -webkit-linear-gradient(
+            -90deg,
+            #804dee 0%,
+            rgba(60, 51, 80, 0) 100%
+    );
 }

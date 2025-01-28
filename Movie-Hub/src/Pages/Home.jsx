@@ -55,8 +55,9 @@ const Home = () => {
 
     return (
         <main>
-            <Navbar/>
+
             <div className='pattern'/>
+            <Navbar/>
             <div className='wrapper'>
                 <header>
                     <img src='./hero.png' alt='hero' />
