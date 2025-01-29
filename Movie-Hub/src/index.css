@@ -19,7 +19,11 @@
 
     --background-image-hero-pattern: url("/hero-bg.png");
 
-    --background-image-hero-pattern1: url("./login-bg.png.webp");
+    --background-image-hero-pattern1: url("./login-bg3.jpg");
+
+    --background-image-hero-pattern2: url("./login-bg2.jpg");
+
+    --background-image-hero-pattern3: url("./llogin-bg.png.webp");
 }
 
 @layer base {
@@ -56,6 +60,9 @@
     }
     .loginPattern{
         @apply bg-hero-pattern w-screen h-screen bg-center bg-cover flex ;
+    }
+    .loginPattern1{
+        @apply bg-hero-pattern1 w-screen h-screen bg-center bg-cover flex ;
     }
 
     .wrapper {

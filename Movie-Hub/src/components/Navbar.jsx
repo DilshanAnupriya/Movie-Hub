@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Navbar = () => {
+    const [isToggle, setIsToggle] = useState(false);
+
     return (
         <nav className="relative bg-white/5 backdrop-blur-md border border-b-white/10">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -59,33 +61,61 @@ const Navbar = () => {
                         Log Out
                     </button>
 
-                    {/* Hamburger Menu for Mobile */}
-                    <button
-                        data-collapse-toggle="navbar-cta"
-                        type="button"
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500
-                        rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200
-                        dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-cta"
-                        aria-expanded="false"
+                    {/* Hamburger Menu for Mobile */}<button
+                    data-collapse-toggle="navbar-cta"
+                    type="button"
+                    className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500
+                    rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200
+                     dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 cursor-pointer"
+                    aria-controls="navbar-cta"
+                    aria-expanded={isToggle}
+                    onClick={() => setIsToggle(!isToggle)}
+                >
+                    <span className="sr-only">Open main menu</span>
+                    <svg
+                        className="w-5 h-5"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 17 14"
                     >
-                        <span className="sr-only">Open main menu</span>
-                        <svg
-                            className="w-5 h-5"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 17 14"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M1 1h15M1 7h15M1 13h15"
-                            />
-                        </svg>
-                    </button>
+                        <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M1 1h15M1 7h15M1 13h15"
+                        />
+                    </svg>
+                </button>
+
+                    <div
+                        className={`${isToggle ? 'flex' : 'hidden'} absolute top-16 left-0 items-center justify-center w-full 
+                        bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-md xl:hidden`}
+                        id="navbar-cta"
+                    >
+                        <ul className="flex flex-col font-medium p-4 mt-4 space-y-2 md:p-0 md:mt-0">
+                            <li>
+                                <a href="#" className="block py-2 px-3 text-gray-900 rounded-md hover:bg-gray-200
+                                 dark:hover:bg-gray-700 dark:text-white">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="block py-2 px-3 text-gray-900 rounded-md hover:bg-gray-200
+                                  dark:hover:bg-gray-700 dark:text-white">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="block py-2 px-3 text-gray-900 rounded-md hover:bg-gray-200
+                                   dark:hover:bg-gray-700 dark:text-white">
+                                    Services
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </nav>

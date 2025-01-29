@@ -4,6 +4,8 @@ import Spinner from "../components/Spinner.jsx";
 import MovieCard from "../components/MovieCard.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
+import {motion} from "framer-motion";
+import {fadeIn, textVariant} from "../utils/Motion.js";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_URL;
@@ -61,12 +63,26 @@ const Home = () => {
             <div className='wrapper'>
                 <header>
                     <img src='./hero.png' alt='hero' />
-                    <h1>Find<span className='text-gradient'>Movies</span> You'll Enjoy
-                        Without the Hassle</h1>
+                    <motion.div
+                        variants={fadeIn("","",0.5,1.5)}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <h1>Find<span className='text-gradient'>&nbsp;Movies</span>
+                            You'll Enjoy Without the Hassle</h1>
+                    </motion.div>
+
                     <Search setSearch={setSearch} search={search} />
                 </header>
                 <section className='all-movies'>
-                    <h2 className='mt-[40px]'>All Movies</h2>
+                    <motion.div
+                        variants={fadeIn("","",1,2.5)}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <h2 className='mt-[70px]'>All Movies</h2>
+                    </motion.div>
+
                     {isLoading?(
                         <Spinner/>
                     ): errorMessage?(

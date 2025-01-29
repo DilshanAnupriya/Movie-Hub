@@ -7,6 +7,7 @@ import AnimeLoader from "./AnimeLoader.jsx";
 const Anime = () =>{
 
     const anime2 = useGLTF('./knuckles_movie__free 2/scene.gltf');
+    const anime3 = useGLTF('./one_piece_straw_hat_2_years copy/scene.gltf');
 
 
     return(
@@ -20,6 +21,17 @@ const Anime = () =>{
                 rotation={[0,0,0]}
                 scale={2.5}/>
         </mesh>
+        //       <mesh>
+        //       <hemisphereLight intensity={2.5} groundColor="black" />
+        //     <pointLight intensity={1.5}/>
+        //     <spotLight intensity={1}/>
+        //     <primitive
+        //         object={anime3.scene}
+        //         position={[0, -1, 0]}
+        //         rotation={[0, 0, 0]}
+        //         scale={0.4} // Reduce the scale
+        //     />
+        // </mesh>
     )
 
 }

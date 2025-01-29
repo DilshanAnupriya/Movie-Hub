@@ -1,0 +1,8 @@
+Model Information:
+* title:	Transformers 5, Optimus Prime
+* source:	https://sketchfab.com/3d-models/transformers-5-optimus-prime-89c19434f80d44f4af8ae55d0dc6e367
+* author:	dhvvknczk (https://sketchfab.com/Drillingplatform)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
