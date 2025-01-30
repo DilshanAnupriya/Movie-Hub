@@ -20,7 +20,7 @@ const Login = () => {
                     <LoginCard/>
                 </div>
                 <div className="w-full h-screen flex justify-center lg:w-1/2 md:w-1/2 ">
-                    <form className="w-3/4 h-[600px] p-[100px]  pt-[50px] mt-[100px] bg-white/3 backdrop-blur-xs
+                    <form className="w-3/4 h-[600px] p-[100px]  pt-[50px] mt-[100px]
                      rounded-4xl 2xl:mt-[180px]
 
                          ">

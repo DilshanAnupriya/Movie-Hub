@@ -4,14 +4,14 @@ import SignUpCard from "../components/SignUpCard.jsx";
 
 const SignUp = () => {
     return (
-        <mein>
-            <div className="w-full h-[600px] flex flex-col lg:flex-row ">
+        <mein className="loginPattern1">
+            <div className=" w-full h-[600px] flex flex-col lg:flex-row ">
                 <div className="w-full h-screen  lg:w-1/2 md:w-1/2 ">
                     <SignUpCard/>
                 </div>
                 <div className="w-full h-screen flex justify-center lg:w-1/2 md:w-1/2 ">
                     <form className="w-3/4 h-[500px] p-[100px]  pt-[20px] lg:mt-[0px] xl:mt-[20px] 2xl:mt-[100px]
-                    rounded-lg bg-transparent backdrop-blur-md">
+                    rounded-lg bg-transparent ">
                         <h1 className="text-gradient flex justify-center pb-[70px]">Signup</h1>
                         <div className="mb-5">
                             <label
