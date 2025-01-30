@@ -1,6 +1,6 @@
 Movie Hub 🎬
 
-Movie Hub is a full-featured Movie Web Application built with the MERN stack (MongoDB, Express.js, React.js, Node.js). It allows users to explore movies, leave reviews and ratings, manage watchlists, and interact with a user-friendly interface.
+Movie Hub is a full-featured Movie Web Application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) and three.js . It allows users to explore movies, leave reviews and ratings, manage watchlists, and interact with a user-friendly interface.
 
 Key Features 🚀
 
@@ -13,7 +13,7 @@ Key Features 🚀
 
 Tech Stack 🛠
 
-Frontend: React.js, Tailwind CSS
+Frontend: React.js, Tailwind CSS, three.js, framer-motion
 Backend: Node.js, Express.js
 Database: MongoDB
 Authentication: JWT (JSON Web Tokens)
@@ -22,7 +22,7 @@ Installation & Setup
 
 1️⃣ Clone the repository:
 
-git clone https://github.com/your-username/movie-hub.git
+git clone https://github.com/DilshanAnupriya/movie-hub.git
 cd movie-hub
 2️⃣ Install dependencies:
 
@@ -36,7 +36,5 @@ npm start
 cd frontend
 npm start
 Contributing 🤝
-
-We welcome contributions! Feel free to fork the repo, create a feature branch, and submit a pull request.
 
 📌 Stay tuned for more updates and features! 🎥✨
