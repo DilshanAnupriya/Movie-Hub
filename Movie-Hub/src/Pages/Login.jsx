@@ -1,20 +1,10 @@
 import React from 'react';
 import LoginCard from "../components/loginCard.jsx";
+import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
         <mein>
-            <div className="loginPattern" >
-                <div className="w-full h-screen flex flex-col items-center justify-center  ">
-                    <img src="./logo.png" alt="star" className='w-[200px] h-[200px] -mt-[100px] pb-7'/>
-                    <h1>Find<span className='text-gradient '>&nbsp;Movies</span> You'll Enjoy
-                        Without the Hassle</h1>
-                    <div className="mt-15 ">
-                        <button className="text-purple-500 font-bold text-[22px] bg-transparent border-2 border-purple-500 rounded-2xl w-[200px] h-[50px] cursor-pointer hover:text-white hover:bg-purple-900" >Get Start</button>
-                    </div>
-                </div>
-
-            </div>
             <div className="loginPattern1 w-full h-screen flex flex-col lg:flex-row ">
                 <div className="w-full h-screen  lg:w-1/2 md:w-1/2 ">
                     <LoginCard/>
@@ -55,28 +45,31 @@ const Login = () => {
                             />
                         </div>
                         <div className="flex items-start  mt-7">
-
                             <label
                                 htmlFor="terms"
                                 className="ms-2 text-sm  font-medium text-gray-900 dark:text-gray-300"
                             >
                                 Do not have an &nbsp;
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/SignUp"
                                     className="text-blue-600 hover:underline dark:text-blue-500"
                                 >
                                     account?
-                                </a>
+                                </Link>
                             </label>
                         </div>
-                        <button
-                            type="submit"
-                            className="text-white w-full mt-10  bg-purple-500 hover:bg-purple-900 focus:ring-4
-                            focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
-                             text-center  "
-                        >
-                            Login
-                        </button>
+                        <Link to='/Home'>
+                            <button
+                                type="submit"
+                                className="text-white w-full mt-10  bg-purple-500 hover:bg-purple-900
+                                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg
+                                 text-sm px-5 py-2.5
+                                 text-center  "
+                                 >
+                                Login
+                            </button>
+                        </Link>
+
                     </form>
                 </div>
             </div>

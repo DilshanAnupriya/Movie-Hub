@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginCard from "../components/loginCard.jsx";
 import SignUpCard from "../components/SignUpCard.jsx";
+import {Link} from "react-router-dom";
 
 const SignUp = () => {
     return (
@@ -90,22 +91,25 @@ const SignUp = () => {
                                 className="ms-2 text-sm  font-medium text-gray-900 dark:text-gray-300"
                             >
                                 Already have an &nbsp;
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/Login"
                                     className="text-blue-600 hover:underline dark:text-blue-500"
                                 >
                                     account?
-                                </a>
+                                </Link>
                             </label>
                         </div>
-                        <button
-                            type="submit"
-                            className="text-white w-full mt-10 bg-purple-500 hover:bg-purple-900 focus:ring-4
-                            focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
-                             text-center  "
-                        >
-                            Submit
-                        </button>
+                        <Link to="/Login">
+                            <button
+                                type="submit"
+                                className="text-white w-full mt-10 bg-purple-500 hover:bg-purple-900 focus:ring-4
+                                 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
+                                 text-center  "
+                            >
+                                Submit
+                            </button>
+                        </Link>
+
                     </form>
                 </div>
             </div>
