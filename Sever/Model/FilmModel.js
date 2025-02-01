@@ -14,7 +14,7 @@ const FilmSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    rating:{
+    ratings:{
         type: Number,
         required: true
     },
@@ -44,6 +44,10 @@ const FilmSchema = new mongoose.Schema({
     },
     companies:{
         type: Array,
+        required: true
+    },
+    language:{
+        type: String,
         required: true
     }
 });
