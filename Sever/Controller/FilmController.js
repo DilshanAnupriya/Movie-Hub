@@ -14,11 +14,9 @@ const GetAllFilm = async (req, res) => {
         const { searchText = '', page = 1, size = 10 } = req.query
 
         const numericSearch = !isNaN(searchText) ? Number(searchText) : null;
-        const lowerSearchText = searchText.toLowerCase();
-
-
+        const Search = searchText;
         const filter =
-            lowerSearchText !== 'ratings' && searchText
+            Search !== 'ratings' && searchText
                 ? {
                     $or: [
                         { title: { $regex: searchText, $options: 'i' } },
@@ -30,7 +28,7 @@ const GetAllFilm = async (req, res) => {
                 : {};
 
         let sortBy = { year: -1 };
-        if (lowerSearchText === 'ratings') {
+        if (Search === 'ratings') {
             sortBy = { rating: -1 };
         }
 
