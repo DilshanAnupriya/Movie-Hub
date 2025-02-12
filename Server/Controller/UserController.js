@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require('../Model/UserModel');
+const Review = require("../Model/ReviewsRatingModel");
 const  jwt_secret = process.env.JWT_SECRET;
 
 
@@ -42,6 +43,26 @@ const login = async (req,res) =>{
     const token = jwt.sign(payload,jwt_secret,{expiresIn:'1h'});
     res.status(200).json({message:"User successfully logged in",data:{token:token}});
 }
+
+const GetAllUsers = async (req, res) => {
+    try{
+        const { searchText = '', page = 1, size = 10 } = req.query;
+        const filter =
+               searchText ? {
+                    $or: [
+                        { fullName: { $regex: searchText, $options: 'i' } },
+                        { email: { $regex: searchText, $options: 'i' } },
+                        { username: { $regex: searchText, $options: 'i' } }
+                    ]
+                } : {};
+        const find = await User.find(filter).sort({createdAt: -1});
+        const count = await  User.countDocuments();
+        return res.status(200).json({message:"success",data:find,count:count});
+    }catch (e){
+        return res.status(500).json({error: e.message});
+    }
+}
+
 module.exports = {
-    SignUp,login
+    SignUp,login,GetAllUsers
 }

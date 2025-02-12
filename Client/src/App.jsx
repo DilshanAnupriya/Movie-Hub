@@ -4,11 +4,12 @@ import {Route,Routes} from "react-router-dom";
 import Login from "./Pages/Login.jsx";
 import SignUp from "./Pages/SignUp.jsx";
 
-import Dashboard from "./Pages/Dashboard.jsx";
+import Dashboard from "./components/Dashboard.jsx";
 import UserAddForm from "./components/UserAddForm.jsx";
 import Landing from "./Pages/Landing.jsx";
 import About from "./Pages/About.jsx";
 import Contact from "./Pages/Contact.jsx";
+import UserManagement from "./Pages/UserManagement.jsx";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
                     <Route path="/Contact" element={<Contact />} />
                     {/*<Route path="/Landing" element={< />} />*/}
                     <Route path="/Dashboard" element={<Dashboard />} />
+                    <Route path="/users" element={<UserManagement />} />
                 </Routes>
             </React.Fragment>
         </div>

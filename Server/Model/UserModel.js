@@ -25,6 +25,10 @@ const UserSchema = new mongoose.Schema({
     isActive: {
         type: Boolean,
         required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
     }
 })
 module.exports = mongoose.model('User', UserSchema);
