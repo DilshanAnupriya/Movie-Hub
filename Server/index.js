@@ -1,37 +1,32 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors'); // Import CORS
+const bodyParser = require('body-parser');
 require('dotenv').config();
+const PORT = process.env.PORT || 3000
 
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/movie-hub';
-
-const app = express();
-
-// Middleware
-app.use(express.json()); // Use built-in Express JSON parser
-app.use(cors({
-    origin: 'http://localhost:5173',  // Allow requests from your frontend
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true
-}));
-
-// Import Routes
+//=======================
 const FilmRouter = require("./Routes/FilmRoute");
 const ReviewRatingRouter = require('./Routes/ReviewsRatingRoute');
 const UserRouter = require('./Routes/UserRoute');
+const TrendingRouter = require('./Routes/SearchHistoryRoute');
+//=======================
 
-// Connect to MongoDB
-mongoose.connect(MONGO_URI)
-    .then(() => console.log('✅ MongoDB Connected...'))
-    .catch(err => console.error('❌ MongoDB Connection Error:', err));
+const app = express();
+app.use(bodyParser.json());
 
-// Routes
-app.use('/v1/movies', FilmRouter);
-app.use('/v1/review-ratings', ReviewRatingRouter);
-app.use('/v1/user', UserRouter);
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running on port: ${PORT}`);
+mongoose.connect('mongodb://localhost:27017/movie-hub').then(()=>{
+    console.log('MongoDB Connected...');
+}).catch(err=>{
+    console.error(err);
 });
+
+//=========================
+app.use('/v1/Movies',FilmRouter);
+app.use('/v1/review-ratings',ReviewRatingRouter);
+app.use('/v1/user',UserRouter);
+app.use('/v1/trending',TrendingRouter);
+//=========================
+
+app.listen(PORT,()=>{
+    console.log(`Server is running on port: ${PORT}`);
+})

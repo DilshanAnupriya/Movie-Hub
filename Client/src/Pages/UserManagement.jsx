@@ -7,19 +7,7 @@ const URL = 'http://localhost:3000/v1/user/';
 
 
 const UserManagement = () => {
-    const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        fetch(URL)
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            console.log(data);
-            setUsers(data);
-        })
-        .catch(err => console.log(err))
-    },[]);
     return (
         <div className="w-full h-screen flex">
             <Dashboard/>
@@ -52,7 +40,7 @@ const UserManagement = () => {
                         </div>
                         <div>
                             {/* ✅ Pass fetched users data to Table component */}
-                            {users && <Table users={users}/>}
+                             <Table/>
                         </div>
                     </div>
                 </div>
