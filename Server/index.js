@@ -12,6 +12,10 @@ const TrendingRouter = require('./Routes/SearchHistoryRoute');
 //=======================
 
 const app = express();
+const cors = require("cors");
+
+app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://localhost:27017/movie-hub').then(()=>{
