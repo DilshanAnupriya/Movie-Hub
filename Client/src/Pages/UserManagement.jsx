@@ -3,10 +3,39 @@ import Dashboard from "../components/Dashboard.jsx";
 import Table from "../components/Table.jsx";
 import axios from "axios";
 
-const URL = 'http://localhost:3000/v1/user/';
+
 
 
 const UserManagement = () => {
+
+    const URL = 'http://localhost:3000/v1/user/';
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get(URL);
+                const userList = response.data;  // API response object
+
+                console.log("API Response:", userList);
+                console.log("Is Array (userList.data):", Array.isArray(userList.data)); // Should be true
+
+                if (userList && Array.isArray(userList.data)) {
+                    setUsers(userList.data); // ✅ Extract only the `data` array
+                } else {
+                    console.error("Expected an object with a 'data' array but got:", userList);
+                    setUsers([]); // Fallback for empty state
+                }
+            } catch (e) {
+                console.error("Fetch error:", e);
+            }
+        };
+
+        fetchUsers();
+    }, []);
+
+
 
     return (
         <div className="w-full h-screen flex">
@@ -40,7 +69,7 @@ const UserManagement = () => {
                         </div>
                         <div>
                             {/* ✅ Pass fetched users data to Table component */}
-                             <Table/>
+                             <Table users={users}/>
                         </div>
                     </div>
                 </div>

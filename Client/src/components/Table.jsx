@@ -3,13 +3,13 @@ import React from 'react';
 
 
 
-const Table = () =>{
+const Table = ({users}) =>{
 
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700
-                dark:text-gray-400"
+            <table className="w-full text-sm text-left rtl:text-right text-white dark:text-gray-400">
+                <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-gray-700
+                dark:text-white"
                 >
                 <tr>
                     <th scope="col" className="px-6 py-3">
@@ -28,31 +28,43 @@ const Table = () =>{
                         Date
                     </th>
                     <th scope="col" className="px-6 py-3">
+                        Role
+
+                    </th>
+                    <th scope="col" className="px-6 py-3">
                         Options
 
                     </th>
                 </tr>
                 </thead>
-                <tbody>
-                {/*{users.length > 0 ? (*/}
-                {/*    users.map((user) => (*/}
-                {/*        <tr key={user._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">*/}
-                {/*            <td className="px-6 py-4">{user._id}</td>*/}
-                {/*            <td className="px-6 py-4">{user.email}</td>*/}
-                {/*            <td className="px-6 py-4">{user.fullName}</td>*/}
-                {/*            <td className="px-6 py-4">{user.isActive}</td>*/}
-                {/*            <td className="px-6 py-4">{user.createdAt}</td>*/}
-                {/*            <td className="px-6 py-4 space-x-4">*/}
-                {/*                <a href="#" className="font-medium text-yellow-500  hover:underline">Edit</a>*/}
-                {/*                <a href="#" className="font-medium text-red-600  hover:underline">Delete</a>*/}
-                {/*            </td>*/}
-                {/*        </tr>*/}
-                {/*    ))*/}
-                {/*) : (*/}
-                {/*    <tr>*/}
-                {/*        <td colSpan="3" className="text-center py-4">No users found</td>*/}
-                {/*    </tr>*/}
-                {/*)}*/}
+                <tbody className="text-white">
+                {users.length > 0 ? (
+                    users.map((user,i) => (
+                        <tr key={user.id || i}
+                            className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <td className="px-6 py-4">{user.username}</td>
+                            <td className="px-6 py-4">{user.email}</td>
+                            <td className="px-6 py-4">{user.fullName}</td>
+                            <td>
+                                <span
+                                    className={`ml-5 px-2 py-1 text-white text-xs font-semibold rounded ${user.isActive ? "bg-green-500" : "bg-red-500"}`}>
+                                    {user.isActive ? "Active" : "Inactive"}
+                                </span>
+                            </td>
+                            <td className="px-6 py-4">{user.createdAt.split("T")[0]}</td>
+                            <td className="px-6 py-4">{user.role}</td>
+
+                            <td className="px-6 py-4 space-x-4">
+                                <a href="#" className="font-medium text-yellow-500  hover:underline">Edit</a>
+                                <a href="#" className="font-medium text-red-600  hover:underline">Delete</a>
+                            </td>
+                        </tr>
+                    ))
+                ) : (
+                    <tr>
+                    <td colSpan="3" className="text-center py-4">No users found</td>
+                    </tr>
+                )}
 
                 </tbody>
             </table>
