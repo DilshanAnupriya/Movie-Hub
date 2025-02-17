@@ -26,6 +26,7 @@ const App = () => {
                     {/*<Route path="/Landing" element={< />} />*/}
                     <Route path="/Dashboard" element={<Dashboard />} />
                     <Route path="/users" element={<UserManagement />} />
+                    <Route path="/addUser" element={<UserAddForm/>}/>
                 </Routes>
             </React.Fragment>
         </div>

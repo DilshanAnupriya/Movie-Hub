@@ -6,7 +6,7 @@ const  jwt_secret = process.env.JWT_SECRET;
 
 
 const SignUp = async (req,res) =>{
-    const {username, password,email,fullName,role} = req.body;
+    const {username, password,email,fullName,role,createdAt} = req.body;
     const userExist =  await User.findOne({username});
     if(userExist){
         return res.status(400).json({message:"User already exist"});
@@ -20,7 +20,8 @@ const SignUp = async (req,res) =>{
             role,
             email,
             fullName,
-            isActive:true
+            isActive:true,
+            createdAt:new Date()
         });
         await user.save();
         res.status(200).json({message:"User saved successfully"});

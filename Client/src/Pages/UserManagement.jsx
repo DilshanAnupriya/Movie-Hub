@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Dashboard from "../components/Dashboard.jsx";
 import Table from "../components/Table.jsx";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 
@@ -62,14 +63,18 @@ const UserManagement = () => {
                                 <button className="text-white h-[40px] w-[100px] mt-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Download
                                 </button>
-                                <button className="text-white h-[40px] w-[80px] mt-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Add
-                                </button>
+                                <Link to="/addUser">
+                                    <button
+                                        className="text-white h-[40px] w-[80px] mt-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Add
+                                    </button>
+                                </Link>
+
                             </div>
                         </div>
                         <div>
                             {/* ✅ Pass fetched users data to Table component */}
-                             <Table users={users}/>
+                            <Table users={users}/>
                         </div>
                     </div>
                 </div>
