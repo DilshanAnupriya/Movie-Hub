@@ -22,7 +22,7 @@ const UserManagement = () => {
                 console.log("Is Array (userList.data):", Array.isArray(userList.data)); // Should be true
 
                 if (userList && Array.isArray(userList.data)) {
-                    setUsers(userList.data); // ✅ Extract only the `data` array
+                    setUsers(userList.data);
                 } else {
                     console.error("Expected an object with a 'data' array but got:", userList);
                     setUsers([]); // Fallback for empty state
